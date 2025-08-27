@@ -1,9 +1,9 @@
 # F25-Team8
 Team Members:
-
+- Malado Sissoko
 
 ## About Me
-I’m a CS major at UNCG. I like building clean, usable software and I’m taking this course to level up my real-world process (planning, version control, teamwork). Outside class I’m active on campus and into creative projects & events.
+I’m a CS major at UNCG. I like building clean, usable software and I’m taking this course to level up my real world process (planning, version control, teamwork). Outside class I’m active on campus and into creative projects & events.
 
 ## My CSC340 Goals
 - Get comfortable with Git + GitHub flow for teamwork  
