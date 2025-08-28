@@ -1,6 +1,6 @@
 # F25-Team8
 Team Members:
-- Malado Sissoko
+- Malado Sally Sissoko
 - Ndeye Maguette Ndiaye
 
 ## About Me (Malado)
