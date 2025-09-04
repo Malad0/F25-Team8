@@ -1,25 +1,28 @@
-# F25-Team8
-Team Members:
-- Malado Sally Sissoko
-- Ndeye Maguette Ndiaye
+## Title
+> GlamConnect — Bringing Beauty Services to You
 
-## About Me (Malado)
-I’m a CS major at UNCG. I like building clean, usable software and I’m taking this course to level up my real world process (planning, version control, teamwork). Outside class I’m active on campus and into creative projects & events.
+## Team Members
+> Malado Sissoko \
+> Ndeye Maguette Ndiaye
 
-## About Me (Ndeye)
-I’m a Computer Science major at UNCG. I enjoy learning how software is built and how different parts of a project fit together. I like working with people and want to get more practice collaborating on real code. Outside of school, I like spending time with friends and doing creative things.
+## Description 
+> GlamConnect is a simple marketplace where **Clients** browse and book hair, nails, and makeup services, and **Providers** post listings, manage bookings, and respond to reviews. Motivation: make it easy to find trusted local providers with clear prices/ratings and an instant “Book Now” flow.
 
-## My CSC340 Goals (Malado)
-- Get comfortable with Git + GitHub flow for teamwork  
-- Practice writing clear specs/design docs (not just code)  
-- Ship a working project with a clean API and a simple UI
+## App Functions
+1. Customer (the user with the customer role):
+    1. Create/modify customer profile - A profile form (name, email, password, avatar) saves to the database; editable via “My Profile”.
+    2. View available services - The browse page lists service cards (category, provider, price, average rating) with filters (Hair/Nails/Makeup).
+    3. Subscribe to available services - **Book Now** lets the customer pick a service + date/time; creates a booking record; shows success confirmation.
+    4. Write reviews for subscribed services - After a completed booking, the customer can submit a star rating (1–5) and a short comment; appears on the service page.
 
-## My CSC340 Goal (Ndeye)
-- Become comfortable using Git and GitHub with a partner  
-- Learn to organize my code better so it’s easier to read and maintain  
-- Practice breaking down a big project into smaller steps  
-- Build confidence contributing ideas and code in a team setting
+2. Provider (the user with the provider role):
+    1. Create/modify/remove provider profile - *(Partner will fill on her branch)*.
+    2. Create services - *(Partner will fill on her branch)*.
+    3. View customer statistics - *(Partner will fill on her branch)*.
+    4. Reply to reviews - *(Partner will fill on her branch)*.
 
-
-<img width="1427" height="677" alt="Screenshot 2025-08-27 at 3 20 47 PM" src="https://github.com/user-attachments/assets/6d655da7-dd48-4507-bb48-1e9041c9c76b" />
-
+3. SysAdmin (the user with the admin role if applicable):
+    1. Manage user access - *(optional / not in scope for now)*.
+    2. Moderate services - *(optional / not in scope for now)*.
+    3. Moderate reviews - *(optional / not in scope for now)*.
+    4. View usage statistics - *(optional / not in scope for now)*.
