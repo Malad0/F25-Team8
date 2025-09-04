@@ -1,30 +1,29 @@
 ## Title
-> GlamConnect — Bringing Beauty Services to You
+> GlamConnect - Beauty Services Booking
 
 ## Team Members
 > Malado Sissoko \
 > Ndeye Maguette Ndiaye
 
-## Description 
-> GlamConnect is a simple marketplace where **Clients** browse and book hair, nails, and makeup services, and **Providers** post listings, manage bookings, and respond to reviews. Motivation: make it easy to find trusted local providers with clear prices/ratings and an instant “Book Now” flow.
+## Description
+> Our app lets clients book hair, nail, and makeup services from local providers. The goal is to make it easier for people to find trusted providers with clear pricing and reviews. Clients can browse services, book appointments, and leave feedback. Providers can create listings, manage their bookings, and check client reviews.
 
 ## App Functions
-1. Customer (the user with the customer role):
-    1. Create/modify customer profile - A profile form (name, email, password, avatar) saves to the database; editable via “My Profile”.
-    2. View available services - The browse page lists service cards (category, provider, price, average rating) with filters (Hair/Nails/Makeup).
-    3. Subscribe to available services - **Book Now** lets the customer pick a service + date/time; creates a booking record; shows success confirmation.
-    4. Write reviews for subscribed services - After a completed booking, the customer can submit a star rating (1–5) and a short comment; appears on the service page.
+1. Customer:
+    1. Make or edit a customer profile (basic info saved in the system).
+    2. View services in categories (hair, nails, makeup) with price and ratings.
+    3. Book a service by picking a time/date and confirming it.
+    4. Leave a star rating and short review after booking is completed.
 
-2. Provider (the user with the provider role):
-    1. Create/modify/remove provider profile - *(Partner will fill on her branch)*.
-    2. Create services - *(Partner will fill on her branch)*.
-    3. View customer statistics - *(Partner will fill on her branch)*.
-    4. Reply to reviews - *(Partner will fill on her branch)*.
+2. Provider:
+    1. Create or update their provider profile with details.
+    2. Add services they offer (with price, category, etc.).
+    3. Look at client activity (like number of bookings).
+    4. Reply back to client reviews.
 
-3. SysAdmin (the user with the admin role if applicable):
-    1. Manage user access - *(optional / not in scope for now)*.
-    2. Moderate services - *(optional / not in scope for now)*.
-    3. Moderate reviews - *(optional / not in scope for now)*.
-    4. View usage statistics - *(optional / not in scope for now)*.
-    <!--fix-->
+3. SysAdmin (optional):
+    1. Manage logins and access.
+    2. Keep an eye on services.
+    3. Moderate reviews if needed.
+    4. Track overall usage stats.
     
