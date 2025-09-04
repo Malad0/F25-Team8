@@ -16,12 +16,12 @@
     4. Leave a star rating and short review after booking is completed.
 
 2. Provider:
-    1. Create or update their provider profile with details.
-    2. Add services they offer (with price, category, etc.).
-    3. Look at client activity (like number of bookings).
-    4. Reply back to client reviews.
+   1. Create/modify/remove provider profile - Providers can make a profile in a simple form (display name, bio, location) and update or delete it later.
+    2. Create services - Add/edit/remove service listings (title, category, description, price). Listings show up on the browse page.
+    3. View customer statistics - See basic counts like number of bookings and the average rating per service.
+    4. Reply to reviews - Post a short response under reviews written about your own services.
 
-3. SysAdmin (optional):
+3. SysAdmin :
     1. Manage logins and access.
     2. Keep an eye on services.
     3. Moderate reviews if needed.
