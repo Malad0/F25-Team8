@@ -1,10 +1,12 @@
 # Software Requirements Specification
-## For <project name>
+## For GlamConnect
 
 Version 0.1  
-Prepared by <author>  
-<organization>  
-<date created> 
+Prepared by Team 8  
+UNCG – CSC 340  
+September 18, 2025
+
+---
 
 Table of Contents
 =================
@@ -22,9 +24,10 @@ Table of Contents
   * 2.4 [Assumptions and Dependencies](#24-assumptions-and-dependencies)
 * 3 [Requirements](#3-requirements)
   * 3.1 [Functional Requirements](#31-functional-requirements)
-    * 3.1.1 [User Interfaces](#311-user-interfaces)
-    * 3.1.2 [Hardware Interfaces](#312-hardware-interfaces)
-    * 3.1.3 [Software Interfaces](#313-software-interfaces)
+    * 3.1.1 [Customer Functional Requirements](#311-customer-functional-requirements)
+    * 3.1.2 [User Interfaces](#312-user-interfaces)
+    * 3.1.3 [Hardware Interfaces](#313-hardware-interfaces)
+    * 3.1.4 [Software Interfaces](#314-software-interfaces)
   * 3.2 [Non-Functional Requirements](#32-non-functional-requirements)
     * 3.2.1 [Performance](#321-performance)
     * 3.2.2 [Security](#322-security)
@@ -34,93 +37,114 @@ Table of Contents
     * 3.2.6 [Cost](#326-cost)
     * 3.2.7 [Deadline](#327-deadline)
 
+---
+
 ## Revision History
-| Name | Date    | Reason For Changes  | Version   |
-| ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
-|      |         |                     |           |
-|      |         |                     |           |
+| Name            | Date        | Reason For Changes        | Version |
+| --------------- | ----------- | ------------------------- | ------- |
+| Malado Sissoko  | 2025-09-18  | Initial draft – Customer  | 0.1     |
+
+---
 
 ## 1. Introduction
 
 ### 1.1 Document Purpose
-Describe the purpose of the SRS and its intended audience.
+This SRS defines the requirements for GlamConnect, a platform that connects customers with glam/beauty service providers. The audience is our CSC 340 team, instructor, and student testers.
 
 ### 1.2 Product Scope
-Identify the product whose software requirements are specified in this document, including the revision or release number. Explain what the product that is covered by this SRS will do, particularly if this SRS describes only part of the system or a single subsystem. 
-Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+GlamConnect lets customers browse services, book appointments, manage their profile, and write reviews. Providers list services, manage availability, and reply to reviews. The goal is to simplify finding reliable glam services for students and local users.
 
-### 1.3 Definitions, Acronyms and Abbreviations                                                                                                                                                                          |
+### 1.3 Definitions, Acronyms and Abbreviations
+- **SRS** – Software Requirements Specification  
+- **UI** – User Interface  
+- **Customer** – End-user seeking services  
+- **Provider** – Glam professional offering services
 
 ### 1.4 References
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+- CSC 340 course materials (syllabus, slides, assignments)
+- Team repository documentation
 
 ### 1.5 Document Overview
-Describe what the rest of the document contains and how it is organized.
+Section 2 summarizes the product and users. Section 3 states detailed functional and non-functional requirements.
+
+---
 
 ## 2. Product Overview
-This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
 
 ### 2.1 Product Functions
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+- Customer profile creation and updates  
+- Browse and filter glam services  
+- Appointment booking and history  
+- Write and view reviews  
+- Provider service listings and review replies
 
 ### 2.2 Product Constraints
-This subsection should provide a general description of any other items that will limit the developer’s options. These may include:  
+- Browser-based (desktop and mobile)  
+- Semester timeline deliverables  
+- GitHub workflow for source control
 
-* Interfaces to users, other applications or hardware.  
-* Quality of service constraints.  
-* Standards compliance.  
-* Constraints around design or implementation.
-  
 ### 2.3 User Characteristics
-Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+- **Customers:** mostly students; low to moderate technical skills  
+- **Providers:** small business owners; moderate technical skills  
+- **Admin (if used):** manages access/content
 
 ### 2.4 Assumptions and Dependencies
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+- Stable internet connection  
+- Simple hosting (e.g., GitHub Pages for prototype)  
+- Future: possible third-party API for maps/location
+
+---
 
 ## 3. Requirements
 
-### 3.1 Functional Requirements 
-This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
+### 3.1 Functional Requirements
 
-The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
+#### 3.1.1 Customer Functional Requirements
+CFR-01 The system **shall allow a customer to create a profile** with name and contact information.  
+CFR-02 The system **shall allow a customer to update their profile** (name, contact, preferences).  
+CFR-03 The system **shall display a catalog of services** with basic details (category, price range, location).  
+CFR-04 The system **shall allow customers to filter or search services** by keyword, category, or price range.  
+CFR-05 The system **shall allow a customer to view a provider’s service details** including description and sample work.  
+CFR-06 The system **shall allow a customer to request/book an appointment time** from a service page.  
+CFR-07 The system **shall record and display a customer’s booking history**.  
+CFR-08 The system **shall allow a customer to submit a review** (rating + comment) for a completed booking.  
+CFR-09 The system **shall prevent duplicate reviews for the same booking**.  
+CFR-10 The system **shall allow a customer to edit or delete their own review**.
 
-#### 3.1.1 User interfaces
-Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
+#### 3.1.2 User Interfaces
+- A top navigation menu appears on all pages.  
+- Forms use clear labels, required field indicators, and error messages.  
+- Layout is responsive for laptop and mobile screens.
 
-Could be further divided into Usability and Convenience requirements.
+#### 3.1.3 Hardware Interfaces
+- Standard web browser on laptop, tablet, or smartphone (no special hardware).
 
-#### 3.1.2 Hardware interfaces
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+#### 3.1.4 Software Interfaces
+- Web browser (latest Chrome/Firefox/Safari/Edge).  
+- Future: optional integration with an external API (e.g., map/location).  
 
-#### 3.1.3 Software interfaces
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+---
 
-### 3.2 Non Functional Requirements 
+### 3.2 Non-Functional Requirements
 
 #### 3.2.1 Performance
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+NFR-P1 Pages **shall load within 3 seconds** on campus Wi-Fi under normal load.
 
 #### 3.2.2 Security
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+NFR-S1 Customer profile data **shall be protected** and only editable by the profile owner.  
+NFR-S2 Reviews **shall be tied to a completed booking** to reduce spam.
 
 #### 3.2.3 Reliability
-Specify the factors required to establish the required reliability of the software system at time of delivery.
+NFR-R1 The prototype **shall handle at least 20 concurrent users** without crashing during demos.
 
 #### 3.2.4 Availability
-Specify the factors required to guarantee a defined availability level for the entire system such as checkpoint, recovery, and restart.
+NFR-A1 The system **shall be available 95% of the time** during the semester.
 
 #### 3.2.5 Compliance
-Specify the requirements derived from existing standards or regulations
+NFR-C1 Follow instructor’s coding/documentation standards.
 
 #### 3.2.6 Cost
-Specify monetary cost of the software product.
+NFR-Cost1 Use free tools/services (GitHub, free hosting) for the prototype.
 
 #### 3.2.7 Deadline
-Specify schedule for delivery of the software product.
+NFR-D1 Final delivery by **December 9, 2025** (course schedule).
