@@ -25,9 +25,10 @@ Table of Contents
 * 3 [Requirements](#3-requirements)
   * 3.1 [Functional Requirements](#31-functional-requirements)
     * 3.1.1 [Customer Functional Requirements](#311-customer-functional-requirements)
-    * 3.1.2 [User Interfaces](#312-user-interfaces)
-    * 3.1.3 [Hardware Interfaces](#313-hardware-interfaces)
-    * 3.1.4 [Software Interfaces](#314-software-interfaces)
+    * 3.1.2 [Provider Functional Requirements](#312-provider-functional-requirements)
+    * 3.1.3 [User Interfaces](#313-user-interfaces)
+    * 3.1.4 [Hardware Interfaces](#314-hardware-interfaces)
+    * 3.1.5 [Software Interfaces](#315-software-interfaces)
   * 3.2 [Non-Functional Requirements](#32-non-functional-requirements)
     * 3.2.1 [Performance](#321-performance)
     * 3.2.2 [Security](#322-security)
@@ -40,9 +41,10 @@ Table of Contents
 ---
 
 ## Revision History
-| Name            | Date        | Reason For Changes        | Version |
-| --------------- | ----------- | ------------------------- | ------- |
-| Malado Sissoko  | 2025-09-18  | Initial draft – Customer  | 0.1     |
+| Name                  | Date       | Reason For Changes                        | Version |
+|-----------------------|------------|-------------------------------------------|---------|
+| Malado Sissoko        | 09/18/2025 | Added Customer functional requirements    | 0.1     |
+| Ndeye Maguette Ndiaye | 09/18/2025 | Added Provider functional requirements    | 0.1     |
 
 ---
 
@@ -52,7 +54,7 @@ Table of Contents
 This SRS defines the requirements for GlamConnect, a platform that connects customers with glam/beauty service providers. The audience is our CSC 340 team, instructor, and student testers.
 
 ### 1.2 Product Scope
-GlamConnect lets customers browse services, book appointments, manage their profile, and write reviews. Providers list services, manage availability, and reply to reviews. The goal is to simplify finding reliable glam services for students and local users.
+GlamConnect lets customers browse services, book appointments, manage their profile, and write reviews. Providers list services, set availability, manage bookings, and reply to reviews. The goal is to simplify finding reliable glam services for students and local users.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 - **SRS** – Software Requirements Specification  
@@ -76,7 +78,9 @@ Section 2 summarizes the product and users. Section 3 states detailed functional
 - Browse and filter glam services  
 - Appointment booking and history  
 - Write and view reviews  
-- Provider service listings and review replies
+- **Provider profile & service listings**  
+- **Provider availability & booking management**  
+- **Provider replies to reviews and basic stats**
 
 ### 2.2 Product Constraints
 - Browser-based (desktop and mobile)  
@@ -111,15 +115,27 @@ CFR-08 The system **shall allow a customer to submit a review** (rating + commen
 CFR-09 The system **shall prevent duplicate reviews for the same booking**.  
 CFR-10 The system **shall allow a customer to edit or delete their own review**.
 
-#### 3.1.2 User Interfaces
+#### 3.1.2 Provider Functional Requirements
+PFR-01 The system **shall allow a provider to create a provider profile** with business name, contact, and short bio.  
+PFR-02 The system **shall allow a provider to modify their profile** and **deactivate/reactivate** their profile.  
+PFR-03 The system **shall allow a provider to create, edit, and remove service listings** (title, category, description, price range, duration).  
+PFR-04 The system **shall allow a provider to upload sample work photos** (portfolio) tied to a service.  
+PFR-05 The system **shall allow a provider to set and update availability** (weekly time slots and blackout dates).  
+PFR-06 The system **shall notify a provider of new booking requests** and **allow accept/decline** with an optional message.  
+PFR-07 The system **shall display a provider’s upcoming appointments and booking history**.  
+PFR-08 The system **shall allow a provider to reply once to each customer review** on their services.  
+PFR-09 The system **shall display basic provider stats** (e.g., total bookings, average rating).  
+PFR-10 The system **shall allow a provider to mark a booking as completed** to unlock the review flow for the customer.
+
+#### 3.1.3 User Interfaces
 - A top navigation menu appears on all pages.  
 - Forms use clear labels, required field indicators, and error messages.  
 - Layout is responsive for laptop and mobile screens.
 
-#### 3.1.3 Hardware Interfaces
+#### 3.1.4 Hardware Interfaces
 - Standard web browser on laptop, tablet, or smartphone (no special hardware).
 
-#### 3.1.4 Software Interfaces
+#### 3.1.5 Software Interfaces
 - Web browser (latest Chrome/Firefox/Safari/Edge).  
 - Future: optional integration with an external API (e.g., map/location).  
 
@@ -132,7 +148,8 @@ NFR-P1 Pages **shall load within 3 seconds** on campus Wi-Fi under normal load.
 
 #### 3.2.2 Security
 NFR-S1 Customer profile data **shall be protected** and only editable by the profile owner.  
-NFR-S2 Reviews **shall be tied to a completed booking** to reduce spam.
+NFR-S2 Reviews **shall be tied to a completed booking** to reduce spam.  
+NFR-S3 Provider replies **shall be limited to one per review** to prevent spam threads.
 
 #### 3.2.3 Reliability
 NFR-R1 The prototype **shall handle at least 20 concurrent users** without crashing during demos.
