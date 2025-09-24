@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up – GLAM Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Create your account</h1>
+    <p>Join as a customer or provider</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="index.html">Login</a>
+    <a href="signup.html" class="active">Sign up</a>
+  </nav>
+
+  <div class="main">
+    <div class="card" style="max-width:520px;">
+      <form onsubmit="redirectUser(); return false;">
+        <label>Full name</label><br>
+        <input required style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+        <label>Email</label><br>
+        <input type="email" required style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+        <label>Password</label><br>
+        <input type="password" required style="width:100%;padding:10px;margin:6px 0 16px;"><br>
+
+        <!-- NEW: role selection -->
+        <label>Sign up as:</label><br>
+        <input type="radio" name="role" value="customer" required> Customer
+        <input type="radio" name="role" value="provider" required style="margin-left:15px;"> Provider
+        <br><br>
+
+        <button class="button" type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function redirectUser() {
+      const role = document.querySelector('input[name="role"]:checked').value;
+      if (role === "customer") {
+        location.href = "customer/home.html";
+      } else {
+        location.href = "provider/home.html";
+      }
+    }
+  </script>
+</body>
+</html>
