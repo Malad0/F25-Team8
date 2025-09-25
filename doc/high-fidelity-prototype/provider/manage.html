@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manage Services – GLAM Connect</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Manage Services & Availability</h1>
+    <p>Add or update services, prices, and hours</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="home.html">Provider</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="appointments.html">Appointments</a>
+    <a class="active" href="manage.html">Manage Services</a>
+    <a href="../index.html">Logout</a>
+  </nav>
+
+  <div class="main">
+    <div class="grid-2">
+      <div class="card">
+        <h2>Your Services</h2>
+        <ul class="list">
+          <li>Silk Press — $70 — 60 min <a href="#">Edit</a> · <a href="#">Remove</a></li>
+          <li>Knotless Braids — $220 — 4 hrs <a href="#">Edit</a> · <a href="#">Remove</a></li>
+          <li>Basic Makeup — $85 — 50 min <a href="#">Edit</a> · <a href="#">Remove</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Add New Service</h2>
+        <form onsubmit="alert('Service saved (prototype)'); return false;">
+          <label>Service name</label><br>
+          <input style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+          <label>Price ($)</label><br>
+          <input type="number" style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+          <label>Duration (min)</label><br>
+          <input type="number" style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+          <button class="button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Availability</h2>
+      <form onsubmit="alert('Availability saved (prototype)'); return false;">
+        <label>Days</label><br>
+        <input type="checkbox" checked> Mon
+        <input type="checkbox" checked> Tue
+        <input type="checkbox" checked> Wed
+        <input type="checkbox"> Thu
+        <input type="checkbox"> Fri
+        <input type="checkbox"> Sat
+        <input type="checkbox"> Sun
+        <br><br>
+
+        <label>Hours</label><br>
+        <input type="time" value="09:00"> to <input type="time" value="17:00">
+        <br><br>
+
+        <button class="button" type="submit">Save Availability</button>
+      </form>
+    </div>
+
+    <p><a href="dashboard.html">← Back to Dashboard</a></p>
+  </div>
+</body>
+</html>
