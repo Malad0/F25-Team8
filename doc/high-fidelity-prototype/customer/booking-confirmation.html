@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Confirmed – GLAM Connect</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Appointment Request Sent ✅</h1>
+    <p>This is a prototype confirmation screen (no real emails sent).</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="home.html" class="active">Customer</a>
+    <a href="../provider/home.html">Provider</a>
+  </nav>
+
+  <div class="main">
+    <div class="card" style="max-width:560px;">
+      <h3>Summary</h3>
+      <p id="summary">Loading…</p>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+        <a class="button" href="home.html">Return to Dashboard</a>
+        <a class="button ghost" href="browse.html">Browse Providers</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Read query string to show a simple summary
+    const params = new URLSearchParams(location.search);
+    const service = params.get('service') || '(none)';
+    const date = params.get('date') || '(none)';
+    const time = params.get('time') || '(none)';
+    const name = params.get('name') || '(none)';
+    const email = params.get('email') || '(none)';
+
+    const niceDate = date ? new Date(date + 'T00:00').toDateString() : '(none)';
+    const summary = `
+      <strong>Name:</strong> ${name}<br>
+      <strong>Email:</strong> ${email}<br>
+      <strong>Service:</strong> ${service}<br>
+      <strong>Date:</strong> ${niceDate}<br>
+      <strong>Time:</strong> ${time}
+    `;
+    document.getElementById('summary').innerHTML = summary;
+  </script>
+</body>
+</html>

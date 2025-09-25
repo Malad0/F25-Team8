@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Customer Home</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <title>Customer Dashboard – GLAM Connect</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header>
-    <h1>GLAM Connect</h1>
-    <p>Customer Dashboard</p>
+    <h1>Customer Dashboard</h1>
+    <p class="muted">Browse providers, book appointments, and leave reviews</p>
   </header>
 
   <nav class="topnav">
@@ -18,23 +18,36 @@
   </nav>
 
   <div class="main">
-    <div class="grid">
-      <a class="card" href="browse.html">
+
+    <!-- Quick actions -->
+    <section class="grid-cards">
+      <div class="card">
         <h3>Browse Providers</h3>
-        <p>Find stylists, MUAs, and more.</p>
-      </a>
-      <a class="card" href="book.html">
+        <p>Find hairstylists, MUAs, nail & lash techs near you.</p>
+        <div class="actions">
+          <a class="button" href="browse.html">Browse</a>
+        </div>
+      </div>
+
+      <div class="card">
         <h3>Book Appointment</h3>
-        <p>Select a date/time and confirm.</p>
-      </a>
-      <a class="card" href="review.html">
-        <h3>Leave Review</h3>
-        <p>Share feedback on your visit.</p>
-      </a>
-      <a class="card" href="../index.html">
-        <h3>Log out</h3>
-        <p>Return to login.</p>
-      </a>
+        <p>Select a service, pick a date & time, and confirm.</p>
+        <div class="actions">
+          <a class="button" href="book.html">Book</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Leave a Review</h3>
+        <p>Share feedback on your visit to help others decide.</p>
+        <div class="actions">
+          <a class="button" href="review.html">Review</a>
+        </div>
+      </div>
+    </section>
+
+    <div style="margin-top:14px;">
+      <a class="button ghost" href="../index.html">Log out</a>
     </div>
   </div>
 </body>

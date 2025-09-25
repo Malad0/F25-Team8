@@ -1,14 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Book Appointment</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <title>Book Appointment – GLAM Connect</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <h2>Book an Appointment</h2>
-  <p>Select service and date (placeholder).</p>
-  <a class="button" href="home.html">Confirm & Return</a>
+  <header>
+    <h1>Book an Appointment</h1>
+    <p>Select service, date and time</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="home.html" class="active">Customer</a>
+    <a href="../provider/home.html">Provider</a>
+  </nav>
+
+  <div class="main">
+    <div class="card" style="max-width:560px;">
+      <!-- No autofill; user picks service themselves -->
+      <form onsubmit="handleSubmit(event)">
+        <label for="service">Service</label><br />
+        <select id="service" required style="width:100%;padding:10px;margin:6px 0 14px;">
+          <option value="" selected disabled>Choose a service…</option>
+          <!-- Hair services (example) -->
+          <option>Silk press</option>
+          <option>Wash &amp; blowout</option>
+          <option>Knotless braids</option>
+          <!-- Makeup services (example) -->
+          <option>Soft glam</option>
+          <option>Full glam</option>
+          <option>Bridal trial</option>
+        </select>
+
+        <label for="date">Date</label><br />
+        <input id="date" type="date" required style="width:100%;padding:10px;margin:6px 0 14px;" />
+
+        <label for="time">Time</label><br />
+        <input id="time" type="time" required style="width:100%;padding:10px;margin:6px 0 14px;" />
+
+        <label for="name">Your name</label><br />
+        <input id="name" type="text" required placeholder="First Last"
+               style="width:100%;padding:10px;margin:6px 0 14px;" />
+
+        <label for="email">Email (for confirmation)</label><br />
+        <input id="email" type="email" required placeholder="you@example.com"
+               style="width:100%;padding:10px;margin:6px 0 18px;" />
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="button" type="submit">Confirm booking</button>
+          <a class="button ghost" href="browse.html">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      // Grab selections and pass to confirmation via query string (purely front-end)
+      const service = encodeURIComponent(document.getElementById('service').value);
+      const date = encodeURIComponent(document.getElementById('date').value);
+      const time = encodeURIComponent(document.getElementById('time').value);
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+
+      location.href = `booking-confirmation.html?service=${service}&date=${date}&time=${time}&name=${name}&email=${email}`;
+    }
+  </script>
 </body>
-   
 </html>

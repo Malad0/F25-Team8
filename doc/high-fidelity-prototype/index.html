@@ -17,16 +17,30 @@
   </nav>
 
   <div class="main">
-    <div class="card" style="max-width:420px;">
-      <form onsubmit="location.href='home.html'; return false;">
-        <label>Email</label><br>
-        <input type="email" required style="width:100%;padding:10px;margin:6px 0 12px;"><br>
-        <label>Password</label><br>
-        <input type="password" required style="width:100%;padding:10px;margin:6px 0 16px;"><br>
-        <button class="button" type="submit">Login</button>
-      </form>
-      <p style="margin-top:10px;">No account? <a href="signup.html">Create one</a></p>
-    </div>
+    <form onsubmit="
+      const role = document.querySelector('input[name=role]:checked')?.value || 'customer';
+      const target = role === 'provider'
+        ? 'provider/home.html'
+        : 'customer/home.html';
+      location.href = target; 
+      return false;">
+      
+      <label>Email</label><br>
+      <input type="email" required style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+      
+      <label>Password</label><br>
+      <input type="password" required style="width:100%;padding:10px;margin:6px 0 16px;"><br>
+
+      <div style="margin:8px 0 14px;">
+        <label><input type="radio" name="role" value="customer" checked> Customer</label>
+        &nbsp;&nbsp;
+        <label><input type="radio" name="role" value="provider"> Provider</label>
+      </div>
+
+      <button class="button" type="submit">Login</button>
+    </form>
+    
+    <p style="margin-top:10px;">No account? <a href="signup.html">Create one</a></p>
   </div>
 </body>
 </html>
