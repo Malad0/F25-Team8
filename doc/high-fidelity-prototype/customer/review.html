@@ -2,12 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leave a Review</title>
+  <title>Leave a Review – GLAM Connect</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <h2>Leave a Review</h2>
-  <p>Form to review provider (placeholder).</p>
-  <a class="button" href="home.html">Submit & Return</a>
+  <header>
+    <h1>Leave a Review</h1>
+    <p>Share your experience with this provider</p>
+  </header>
+
+  <nav class="topnav">
+    <a href="../index.html">Home</a>
+    <a href="home.html" class="active">Customer</a>
+    <a href="../provider/home.html">Provider</a>
+  </nav>
+
+  <div class="main">
+    <div class="card" style="max-width:520px;">
+      <form onsubmit="alert('✅ Review submitted! (Prototype only)'); location.href='home.html'; return false;">
+        <label for="name">Your Name</label><br>
+        <input id="name" type="text" required style="width:100%;padding:10px;margin:6px 0 12px;"><br>
+
+        <label for="rating">Rating</label><br>
+        <select id="rating" required style="width:100%;padding:10px;margin:6px 0 12px;">
+          <option value="">Select...</option>
+          <option>⭐ (1)</option>
+          <option>⭐⭐ (2)</option>
+          <option>⭐⭐⭐ (3)</option>
+          <option>⭐⭐⭐⭐ (4)</option>
+          <option>⭐⭐⭐⭐⭐ (5)</option>
+        </select><br>
+
+        <label for="comments">Comments</label><br>
+        <textarea id="comments" rows="4" style="width:100%;padding:10px;margin:6px 0 16px;" placeholder="Write your review here..."></textarea><br>
+
+        <button class="button" type="submit">Submit Review</button>
+        <a class="button ghost" href="home.html">Cancel</a>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
