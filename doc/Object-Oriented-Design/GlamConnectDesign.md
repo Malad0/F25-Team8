@@ -35,9 +35,8 @@ The goal is a simple, reliable marketplace experience with clear scheduling and 
 
 ## 2 Use Cases
 
-## 2.1 Use Case Model
-![Use Case Model](./use-case.png)
-
+### 2.1 Use Case Model
+![Use Case Diagram](use-case.png)
 
 ### 2.2 Use Case Descriptions
 
@@ -103,11 +102,10 @@ Provider views upcoming bookings, cancels with reason (policy applies), and sees
 - **Postconditions:** Review stored and associated with booking + service + provider; provider’s aggregate rating updates.
 ---
 
-## 3. UML Class Diagram
-![UML Class Diagram](./class-diagram.png)
-
+## 3 UML Class Diagram
+![UML Class Diagram](class-diagram.png)
 
 ---
 
-## 4. Database Schema
-![Database Schema](./schema.png)
+## 4 Database Schema
+![Database Schema](schema.png)
