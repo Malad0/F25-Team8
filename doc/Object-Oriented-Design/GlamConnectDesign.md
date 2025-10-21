@@ -36,8 +36,7 @@ The goal is a simple, reliable marketplace experience with clear scheduling and 
 ## 2 Use Cases
 
 ### 2.1 Use Case Model
-_Add the image of your use-case diagram here once exported (PNG)._  
-**Placeholder:** `doc/Object-Oriented-Design/use-case.png`
+![Use Case Diagram](use-case.png)
 
 ### 2.2 Use Case Descriptions
 
@@ -104,11 +103,9 @@ Provider views upcoming bookings, cancels with reason (policy applies), and sees
 ---
 
 ## 3 UML Class Diagram
-_Add the image of your UML class diagram once exported (PNG)._  
-**Placeholder:** `doc/Object-Oriented-Design/class-diagram.png`
+![UML Class Diagram](class-diagram.png)
 
 ---
 
 ## 4 Database Schema
-_Add the image of your database schema once exported (PNG)._  
-**Placeholder:** `doc/Object-Oriented-Design/schema.png`
+![Database Schema](schema.png)
