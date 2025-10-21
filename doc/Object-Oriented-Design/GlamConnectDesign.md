@@ -65,24 +65,42 @@ Provider views upcoming bookings, cancels when necessary (with reason), and sees
 
 #### 2.2.2 Actor: Customer
 
-**(C1) Sign Up**  
-Customer registers with name, email (unique), password, and optional phone.
+**(C1) Sign Up**
+- **Goal:** Create a customer account.
+- **Preconditions:** Email is not already registered.
+- **Main Flow:** Enter name, email, password (and optional phone) → submit → account created → directed to customer dashboard.
+- **Postconditions:** Customer profile exists; user is authenticated.
 
-**(C2) Log In**  
-Customer logs in and lands on their dashboard: upcoming appointments and recent activity.
+**(C2) Log In**
+- **Goal:** Access the customer dashboard.
+- **Preconditions:** Account exists with valid credentials.
+- **Main Flow:** Enter email/password → submit → on success, see upcoming appointments and recent activity.
+- **Postconditions:** Session active.
 
-**(C3) Browse & Search Services**  
-Customer browses services; filters by category, price, duration, rating, and provider; keyword search by service or provider name.
+**(C3) Browse & Search Services**
+- **Goal:** Find services to book.
+- **Preconditions:** Providers have published services.
+- **Main Flow:** Browse list; filter by category/price/duration/rating; keyword search by service or provider name; open details page.
+- **Postconditions:** (None) — read-only exploration.
 
-**(C4) Book a Service**  
-Customer selects a service, picks a date/time within provider availability, and confirms booking. Booking gets an ID and status.
+**(C4) Book a Service**
+- **Goal:** Reserve a service time.
+- **Preconditions:** Customer is logged in; provider has availability.
+- **Main Flow:** Select service → pick date/time within availability → confirm booking → booking ID + status returned.
+- **Alternate:** If slot is taken between selection and confirm, show error and prompt to choose a new time.
+- **Postconditions:** New booking record in system with status = “Confirmed” (or “Pending” if your policy requires approval).
 
-**(C5) Manage Bookings**  
-Customer views, reschedules (if policy allows), or cancels bookings; receives confirmation of changes.
+**(C5) Manage Bookings**
+- **Goal:** View, reschedule, or cancel.
+- **Preconditions:** Customer is logged in; booking exists and is eligible for change under policy.
+- **Main Flow:** Open “My Bookings” → choose booking → reschedule to a valid slot or cancel → see confirmation.
+- **Postconditions:** Booking updated (new time) or status changed to “Canceled”.
 
-**(C6) Review a Service**  
-After completion, customer leaves a rating/comment tied to the booking & service.
-
+**(C6) Review a Service**
+- **Goal:** Leave feedback after completion.
+- **Preconditions:** Booking status = “Completed”; no prior review for this booking.
+- **Main Flow:** Open completed booking → rate (e.g., 1–5) + optional comment → submit → review visible on service/provider.
+- **Postconditions:** Review stored and associated with booking + service + provider; provider’s aggregate rating updates.
 ---
 
 ## 3 UML Class Diagram
