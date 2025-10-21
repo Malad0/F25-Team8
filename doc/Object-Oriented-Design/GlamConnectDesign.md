@@ -44,22 +44,22 @@ _Add the image of your use-case diagram here once exported (PNG)._
 #### 2.2.1 Actor: Provider (Stylist/Tech)
 
 **(P1) Sign Up**  
-Provider registers with name, email (unique), password, and phone. On success, they land on a provider dashboard.
+Provider registers with name, email (unique), password, and phone. On success, they land on the provider dashboard.
 
 **(P2) Log In**  
-Provider logs in with email and password. On success, they see stats (upcoming appointments, total bookings, revenue).
+Provider logs in with email and password. On success, they see an overview (upcoming appointments, total bookings, revenue).
 
 **(P3) Update Profile**  
-Provider updates business profile: display name, bio, categories (hair, nails, lashes, makeup), contact, location, and photos.
+Provider updates business profile: display name, bio, categories (hair, nails, lashes, makeup), contact info, location, photos.
 
 **(P4) Create/Manage Services**  
-Provider can create, edit, or delete services. Each service has a name, category, description, price, duration, and visibility.
+Provider creates/edits/deletes services. Each service has name, category, description, price, duration, and visibility (active/inactive).
 
 **(P5) Manage Availability**  
-Provider defines weekly availability windows and blackout dates to control when bookings are allowed.
+Provider defines weekly availability windows and blackout dates. Bookings are only allowed within available slots.
 
 **(P6) View Bookings & Stats**  
-Provider views upcoming bookings, cancels when necessary (with reason), and sees KPIs (bookings count, average rating, revenue).
+Provider views upcoming bookings, cancels with reason (policy applies), and sees KPIs (bookings count, average rating, revenue).
 
 ---
 
