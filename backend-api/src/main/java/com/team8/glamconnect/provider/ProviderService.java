@@ -49,4 +49,10 @@ public class ProviderService {
         getProvider(providerId);              // validate provider exists
         return serviceRepo.findByProviderId(providerId);
     }
+
+    // ==== NEW METHOD for MVC dashboard ====
+    public List<ServiceItem> listServicesForProvider(Long providerId) {
+        // just reuse your existing method
+        return listServices(providerId);
+    }
 }
