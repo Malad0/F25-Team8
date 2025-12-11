@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Sign In - GlamConnect</title>
+    <title>Create Customer - GlamConnect</title>
+
     <style>
         body {
             margin: 0;
@@ -17,11 +18,11 @@
 
         .card {
             background: #fff;
-            max-width: 420px;
+            max-width: 640px;
             width: 100%;
             border-radius: 24px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-            padding: 28px 32px 30px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+            padding: 32px;
         }
 
         .logo {
@@ -30,12 +31,12 @@
             color: #c27d96;
             text-transform: uppercase;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         h1 {
-            margin: 0 0 10px;
-            font-size: 22px;
+            margin: 0 0 12px;
+            font-size: 26px;
             color: #3f1b2b;
         }
 
@@ -45,48 +46,46 @@
             color: #8a5b6f;
         }
 
-        .error {
-            background: #ffe8ef;
-            color: #d24e7a;
-            border: 1px solid #f0b7cc;
-            padding: 10px 14px;
-            border-radius: 10px;
-            margin-bottom: 14px;
-            text-align: center;
-            font-size: 14px;
+        form {
+            margin-top: 10px;
+        }
+
+        .field-row {
+            display: flex;
+            gap: 16px;
         }
 
         .field {
-            margin-bottom: 14px;
+            flex: 1;
+            margin-bottom: 16px;
         }
 
         label {
             display: block;
+            margin-bottom: 4px;
             font-size: 13px;
             font-weight: 500;
             color: #5d3547;
-            margin-bottom: 4px;
         }
 
-        input[type="number"] {
+        input[type="text"],
+        input[type="email"] {
             width: 100%;
-            padding: 9px 10px;
+            padding: 10px;
             border-radius: 10px;
             border: 1px solid #e4c3d1;
             font-size: 14px;
-            font-family: inherit;
-            box-sizing: border-box;
         }
 
         .actions {
-            margin-top: 16px;
             display: flex;
             justify-content: flex-end;
             gap: 10px;
+            margin-top: 20px;
         }
 
         .btn {
-            padding: 9px 18px;
+            padding: 10px 20px;
             border-radius: 999px;
             border: none;
             font-size: 14px;
@@ -106,36 +105,51 @@
             color: #fff;
         }
 
-        .btn-primary:hover {
-            background: #bf426b;
-        }
-
-        .btn-secondary:hover {
-            background: #ffe3ee;
-        }
+        .btn-primary:hover { background: #bf426b; }
+        .btn-secondary:hover { background: #ffe3ee; }
     </style>
 </head>
+
 <body>
 <div class="card">
+
     <div class="logo">GLAMCONNECT</div>
-    <h1>Sign in as provider</h1>
-    <p class="subtitle">For now, sign in using your provider ID.</p>
+    <h1>Create Customer Profile</h1>
+    <p class="subtitle">Add a new customer so they can browse providers and book services.</p>
 
-    <#if errorMessage??>
-        <div class="error">${errorMessage}</div>
-    </#if>
+    <form action="/customers" method="post">
 
-    <form action="/provider/signin" method="post">
-        <div class="field">
-            <label for="providerId">Provider ID</label>
-            <input type="number" id="providerId" name="providerId" placeholder="e.g. 1" min="1" required>
+        <div class="field-row">
+            <div class="field">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <div class="field">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+        </div>
+
+        <div class="field-row">
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone">
+            </div>
         </div>
 
         <div class="actions">
-            <a href="/provider" class="btn btn-secondary">Back</a>
-            <button type="submit" class="btn btn-primary">Sign In</button>
+            <a href="/customers" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save Customer</button>
         </div>
+
     </form>
+
 </div>
 </body>
 </html>

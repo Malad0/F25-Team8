@@ -22,69 +22,66 @@ public class ProviderMvcController {
         this.providerService = providerService;
     }
 
-    // 1) HOME PAGE  ----------------------------------------------------
+    // 1) HOME PAGE ----------------------------------------------------
     @GetMapping("")
     public String providerHome() {
-        // Just show the pretty landing page with Sign In / Sign Up buttons
         return "provider-home";
     }
 
-    // 2) SHOW SIGNUP FORM  ---------------------------------------------
+    // 2) SHOW SIGNUP FORM ---------------------------------------------
     @GetMapping("/signup")
     public String showSignupForm(Model model) {
         model.addAttribute("provider", new Provider());
         return "provider-signup";
     }
 
-    // 3) HANDLE SIGNUP SUBMIT  -----------------------------------------
+    // 3) HANDLE SIGNUP SUBMIT -----------------------------------------
     @PostMapping("/signup")
     public String handleSignup(@ModelAttribute("provider") Provider provider) {
-        // Save the new provider in the database
         Provider saved = providerService.createProvider(provider);
-
-        // After signup, automatically “log in” and go to their dashboard
         return "redirect:/provider/" + saved.getId() + "/dashboard";
     }
 
-    // 4) SHOW SIGNIN FORM  ---------------------------------------------
+    // 4) SHOW SIGNIN FORM ---------------------------------------------
     @GetMapping("/signin")
     public String showSigninForm() {
         return "provider-signin";
     }
 
-    // 5) HANDLE SIGNIN SUBMIT  -----------------------------------------
+    // 5) HANDLE SIGNIN SUBMIT  — FIXED ✔️ ------------------------------
     @PostMapping("/signin")
     public String handleSignin(
-            @RequestParam("providerId") Long providerId,
+            @RequestParam("providerId") String providerIdRaw,
             RedirectAttributes redirectAttributes) {
 
         try {
+            // convert safely
+            Long providerId = Long.parseLong(providerIdRaw.trim());
+
             Provider provider = providerService.getProvider(providerId);
-            // If found, redirect to their dashboard
+
             return "redirect:/provider/" + provider.getId() + "/dashboard";
-        } catch (IllegalArgumentException ex) {
-            // If provider not found, show an error on the sign-in page
-            redirectAttributes.addFlashAttribute("errorMessage",
-                    "Provider not found. Please check your ID and try again.");
+
+        } catch (Exception ex) {
+            // covers: blank input, letters, provider not found, etc.
+            redirectAttributes.addFlashAttribute(
+                    "errorMessage",
+                    "Invalid provider ID. Please try again."
+            );
             return "redirect:/provider/signin";
         }
     }
 
-    // 6) PROVIDER DASHBOARD  -------------------------------------------
+    // 6) PROVIDER DASHBOARD -------------------------------------------
     @GetMapping("/{id}/dashboard")
     public String providerDashboard(@PathVariable Long id, Model model) {
 
-        // Get provider from DB
         Provider provider = providerService.getProvider(id);
-
-        // Get services for this provider
         List<ServiceItem> services = providerService.listServicesForProvider(id);
 
-        // Attach to template
         model.addAttribute("provider", provider);
         model.addAttribute("services", services);
 
-        // Show the dashboard page
         return "provider-dashboard";
     }
 }

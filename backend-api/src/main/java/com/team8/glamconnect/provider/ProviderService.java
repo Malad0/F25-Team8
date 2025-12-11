@@ -1,9 +1,9 @@
 package com.team8.glamconnect.provider;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -18,13 +18,18 @@ public class ProviderService {
     }
 
     // ---- Provider CRUD ----
-    public List<Provider> listProviders() { return providerRepo.findAll(); }
-
-    public Provider getProvider(Long id) {
-        return providerRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Provider not found: " + id));
+    public List<Provider> listProviders() { 
+        return providerRepo.findAll(); 
     }
 
-    public Provider createProvider(Provider p) { return providerRepo.save(p); }
+    public Provider getProvider(Long id) {
+        return providerRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Provider not found: " + id));
+    }
+
+    public Provider createProvider(Provider p) { 
+        return providerRepo.save(p); 
+    }
 
     public Provider updateProvider(Long id, Provider p) {
         Provider cur = getProvider(id);
@@ -36,23 +41,38 @@ public class ProviderService {
         return providerRepo.save(cur);
     }
 
-    public void deleteProvider(Long id) { providerRepo.deleteById(id); }
+    public void deleteProvider(Long id) { 
+        providerRepo.deleteById(id); 
+    }
 
     // ---- Services for a Provider ----
     public ServiceItem createServiceForProvider(Long providerId, ServiceItem s) {
-        getProvider(providerId);              // explode if provider missing
+        getProvider(providerId); // verify exists
         s.setProviderId(providerId);
         return serviceRepo.save(s);
     }
 
     public List<ServiceItem> listServices(Long providerId) {
-        getProvider(providerId);              // validate provider exists
+        getProvider(providerId); // validate provider exists
         return serviceRepo.findByProviderId(providerId);
     }
 
-    // ==== NEW METHOD for MVC dashboard ====
+    // ---- Used by provider dashboard ----
     public List<ServiceItem> listServicesForProvider(Long providerId) {
-        // just reuse your existing method
         return listServices(providerId);
     }
+
+
+    // CUSTOMER FRONTEND
+
+    // 1) List ALL services from ALL providers
+    public List<ServiceItem> listAllServices() {
+        return serviceRepo.findAll();
+    }
+
+    // 2) Get a single service
+   public ServiceItem getService(Long serviceId) {
+    return serviceRepo.findById(serviceId).orElse(null);
+}
+
 }

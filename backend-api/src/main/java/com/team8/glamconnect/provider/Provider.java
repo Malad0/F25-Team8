@@ -22,6 +22,7 @@ public class Provider {
     private String category;     // hair, nails, lashes, makeup...
     private String phone;
     private String location;
+    
 
     public Provider() {}
 
